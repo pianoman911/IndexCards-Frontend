@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Login-Page</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+<h1>Login</h1>
+<form action="javascript:onClick()" method="post">
+    <div class="imgcontainer">
+        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
+
+        <div class="buttons">
+            <button type="submit">Login</button>
+            <button class="registerbtn" type="submit">Registrieren</button>
+        </div>
+        <br>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+    <script>
+        function onClick() {
+            login(document.getElementById("uname").value, document.getElementById("psw").value);
+        }
+    </script>
+</form>
+</body>
+</html>
