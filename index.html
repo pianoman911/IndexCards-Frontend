@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Login-Page</title>
     <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+    <script type="application/javascript" src="index.js"></script>
+    <script type="application/javascript" src="cookies.js"></script>
 </head>
 <body>
-<h1>Login</h1>
-<form action="javascript:onClick()" method="post">
+<h1>Karteikartensystem</h1>
+<form onsubmit="return false">
     <div class="imgcontainer">
         <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
@@ -21,17 +22,18 @@
         <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
 
         <div class="buttons">
-            <button type="submit">Login</button>
-            <button class="registerbtn" type="submit">Registrieren</button>
+            <button onclick="onLogin()" type="submit">Login</button>
+            <button onclick="onRegister()" class="registerbtn" type="submit">Registrieren</button>
         </div>
-        <br>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
     </div>
     <script>
-        function onClick() {
-            login(document.getElementById("uname").value, document.getElementById("psw").value);
+
+        function onLogin() {
+           login(document.getElementById("uname").value, document.getElementById("psw").value);
+        }
+
+        function onRegister() {
+            register(document.getElementById("uname").value, document.getElementById("psw").value);
         }
     </script>
 </form>
