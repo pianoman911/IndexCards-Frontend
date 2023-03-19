@@ -7,7 +7,7 @@
     <script type="application/javascript" src="card.js"></script>
     <script type="application/javascript" src="cookies.js"></script>
 </head>
-<body onload="checkSession(); setCard()">
+<body onload="if(checkSession()) setCard()">
 <h1>Karteikarte</h1>
 <div class="flip-card" id="card">
 

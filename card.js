@@ -15,10 +15,32 @@ function renderCard(id, question) {
     setCookie("card", id, 99999);
 }
 
+function onBack() {
+    window.location.href = "home.html";
+}
+
+function renderBack() {
+    document.getElementById('card').innerHTML += ' <div class="flip-card-inner" id="flip-card-inner">\n' +
+        '    <div class="flip-card-front">' +
+        '      <label for="question" class="question"><b>Du hast alle Fragen abgearbeitet </b></label>\n ' +
+        ' <div class="front-container">\n' +
+        '       <div class="front-content">\n' +
+        '\nKlicke Hier um auf die Startseite zu gelangen\n' +
+        '<br>\n' +
+        '         <button class="back" onclick="onBack()" type="submit">Zurück</button>' +
+        '    </div>\n' +
+        '    </div>\n' +
+        '</div>\n' +
+        '    <div class="flip-card-back" id="flip-card-back">\n' +
+        '    </div>\n' +
+        '  </div>';
+}
+
 function setCard() {
     checkSession();
     var json = {
         "session": getCookie("session"),
+        "group": getCookie("group")
     };
     var jsonStr = JSON.stringify(json);
     var xhr = new XMLHttpRequest();
@@ -32,6 +54,8 @@ function setCard() {
                     var question = json.question;
                     renderCard(id, question)
                 }
+            } else if (xhr.status === 204) {
+                renderBack();
             }
         }
     }

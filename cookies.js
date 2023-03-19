@@ -29,5 +29,7 @@ function deleteCookie(name) {
 function checkSession() {
     if (getCookie("session") == null) {
         window.location.href = "index.html";
+        return false;
     }
+    return true;
 }

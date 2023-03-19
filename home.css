@@ -1,0 +1,37 @@
+body {
+    background-color: #2f2f2f;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#group-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20vh;
+    height: 100vh;
+    width: 80vw;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+}
+
+#grid > button {
+    font-size: 30px;
+    border-radius: 5px;
+    padding: .5em;
+    color: #ffffff;
+    background: #04AA6D;
+    text-align: center;
+}
+
+#group:hover {
+    opacity: 70%;
+}
