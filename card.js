@@ -5,6 +5,7 @@ function renderCard(id, question) {
         ' <div class="front-container">\n' +
         '       <div class="front-content">\n' +
         '\n' + question + '\n' +
+        '       <br>' +
         '        <input id="answer" type="text" placeholder="Antwort" name="anwort" required onkeypress="clickCard(event)">' +
         '    </div>\n' +
         '    </div>\n' +
