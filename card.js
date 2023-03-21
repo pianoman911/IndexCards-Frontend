@@ -2,15 +2,15 @@ function renderCard(id, question) {
     document.getElementById('card').innerHTML += ' <div class="flip-card-inner" id="flip-card-inner">\n' +
         '    <div class="flip-card-front">' +
         '      <label for="question" class="question"><b>#' + id + ' - Frage:</b></label>\n ' +
-        ' <div class="back-container">\n' +
-        '       <div class="back-content">\n' +
+        ' <div class="front-container">\n' +
+        '       <div class="front-content">\n' +
         '\n' + question + '\n' +
-        '       <br>' +
+        '<br>' +
         '        <input id="answer" type="text" placeholder="Antwort" name="anwort" required onkeypress="clickCard(event)">' +
         '    </div>\n' +
         '    </div>\n' +
         '</div>\n' +
-        '    <div class="flip-card-back" id="flip-card-back">\n' +
+        '    <div onsubmit="clickCard()" class="flip-card-back" id="flip-card-back">\n' +
         '    </div>\n' +
         '  </div>';
     setCookie("card", id, 99999);
@@ -65,6 +65,14 @@ function setCard() {
     xhr.send(jsonStr);
 }
 
+function registerListener() {
+    document.onkeypress = function (e) {
+        if (getCookie("flipped") != null) {
+            clickCard(e);
+        }
+    }
+}
+
 function clickCard(e) {
     if (e.keyCode === 13) {
         if (getCookie("flipped") != null) {
@@ -72,6 +80,7 @@ function clickCard(e) {
         } else {
             checkSession();
             setCookie("flipped", true);
+            setTimeout(registerListener, 250)
             var id = getCookie("card");
             var input = document.getElementById("answer").value;
             var json = {
