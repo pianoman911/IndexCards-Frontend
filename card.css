@@ -34,11 +34,11 @@
     transform: rotateY(180deg);
 }
 
-.front-content {
+.front-content, .back-content {
     width: 100%;
 }
 
-.front-container {
+.front-container, .back-container {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -56,7 +56,7 @@ img {
     font-weight: bold;
 }
 
-body{
+body {
     background-color: #2f2f2f;
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
@@ -79,7 +79,7 @@ input[type=text], input[type=answer] {
     box-sizing: border-box;
 }
 
-h1{
+h1 {
     color: #fff;
     font-size: 2em;
     font-weight: bold;
