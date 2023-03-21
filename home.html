@@ -7,7 +7,7 @@
     <script type="application/javascript" src="home.js"></script>
     <script type="application/javascript" src="cookies.js"></script>
 </head>
-<body onload="setGroups()">
+<body onload="if(checkSession()) setGroups()">
 <h1>Karteikartenkategorien</h1>
 <div id="group-container">
     <div id="grid">
