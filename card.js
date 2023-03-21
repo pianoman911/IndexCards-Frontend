@@ -94,13 +94,14 @@ function clickCard(e) {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
-                        var json = JSON.parse(xhr.responseText);
+                        let json = JSON.parse(xhr.responseText);
                         if (json.time != null) {
-                            var time = json.time;
-                            var others = json.others;
-                            var correct = json.correct;
+                            let time = json.time;
+                            let others = json.others;
+                            let correct = json.correct;
 
-                            var html;
+                            let html;
+                            alert(others)
                             if (correct == null) {
                                 html = 'Falsch';
                                 document.getElementById('flip-card-back').style.backgroundColor = "red"
@@ -108,6 +109,11 @@ function clickCard(e) {
                                 html = 'correct';
                                 document.getElementById('flip-card-back').style.backgroundColor = "lawngreen"
                             }
+                            html += '<br>'
+                            others.forEach(function (o) {
+                                html += '\n' + o;
+                                html += '<br>'
+                            });
                             document.getElementById('flip-card-back').innerHTML += html;
                             document.getElementById('flip-card-inner').style.transform = "rotateY(180deg)";
                         }
