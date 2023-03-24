@@ -145,7 +145,7 @@ function login(username, p) {
     };
     var jsonStr = JSON.stringify(json);
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/api/account/login", true);
+    xhr.open("POST", "https://api-indexcards.finndohrmann.de/api/account/login", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -174,7 +174,7 @@ function register(username, p) {
     };
     var jsonStr = JSON.stringify(json);
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/api/account/create", true);
+    xhr.open("POST", "https://api-indexcards.finndohrmann.de/api/account/create", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             alert(xhr.status)

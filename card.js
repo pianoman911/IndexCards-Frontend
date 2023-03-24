@@ -46,7 +46,7 @@ function setCard() {
     };
     var jsonStr = JSON.stringify(json);
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/api/cards/now", true);
+    xhr.open("POST", "https://api-indexcards.finndohrmann.de/api/cards/now", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -90,7 +90,7 @@ function clickCard(e) {
             };
             var jsonStr = JSON.stringify(json);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost:8080/api/cards/done", true);
+            xhr.open("POST", "https://api-indexcards.finndohrmann.de/api/cards/done", true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {

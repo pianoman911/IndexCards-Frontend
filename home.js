@@ -1,6 +1,6 @@
 function setGroups() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8080/api/cards/groups", true);
+    xhr.open("GET", "https://api-indexcards.finndohrmann.de/api/cards/groups", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {

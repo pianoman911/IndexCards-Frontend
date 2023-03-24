@@ -1,3 +1,17 @@
+body {
+    background-color: #2f2f2f;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+label {
+    color: #fff;
+}
+
 form {
     border: 3px solid #f1f1f1;
 }
@@ -45,8 +59,8 @@ button:hover {
     margin: 24px 0 12px 0;
 }
 
-img.avatar {
-    width: 40%;
+img.logo {
+    width: 20%;
     border-radius: 50%;
 }
 

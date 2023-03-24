@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login-Page</title>
+    <link rel="icon" type="image/x-icon" href="https://media-indexcards.finndohrmann.de/logo.ico">
     <link rel="stylesheet" href="index.css">
     <script type="application/javascript" src="index.js"></script>
     <script type="application/javascript" src="cookies.js"></script>
@@ -11,7 +12,7 @@
 <h1>Karteikartensystem</h1>
 <form onsubmit="return false">
     <div class="imgcontainer">
-        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        <img class="logo" src="https://media-indexcards.finndohrmann.de/logo.png" alt="Logo">
     </div>
 
     <div class="container">
@@ -29,7 +30,7 @@
     <script>
 
         function onLogin() {
-           login(document.getElementById("uname").value, document.getElementById("psw").value);
+            login(document.getElementById("uname").value, document.getElementById("psw").value);
         }
 
         function onRegister() {
