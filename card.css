@@ -47,8 +47,9 @@
 }
 
 img {
-    height: 20vh;
-    width: 30vw;
+    height: 20%;
+    width: 30%;
+    aspect-ratio: 800 / 600;
 }
 
 .question {
@@ -59,7 +60,7 @@ img {
 body {
     background-color: #2f2f2f;
     font-family: 'Roboto', sans-serif;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 300;
     line-height: 1.7em;
     color: #fff;

@@ -40,20 +40,20 @@ function renderBack() {
 
 function setCard() {
     checkSession();
-    var json = {
+    let json = {
         "session": getCookie("session"),
         "group": getCookie("group")
     };
-    var jsonStr = JSON.stringify(json);
-    var xhr = new XMLHttpRequest();
+    let jsonStr = JSON.stringify(json);
+    let xhr = new XMLHttpRequest();
     xhr.open("POST", "https://api-indexcards.finndohrmann.de/api/cards/now", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
+                let json = JSON.parse(xhr.responseText);
                 if (json.id != null) {
-                    var id = json.id;
-                    var question = json.question;
+                    let id = json.id;
+                    let question = json.question;
                     renderCard(id, question)
                 }
             } else if (xhr.status === 204) {
@@ -81,15 +81,15 @@ function clickCard(e) {
             checkSession();
             setCookie("flipped", true);
             setTimeout(registerListener, 250)
-            var id = getCookie("card");
-            var input = document.getElementById("answer").value;
-            var json = {
+            let id = getCookie("card");
+            let input = document.getElementById("answer").value;
+            let json = {
                 "session": getCookie("session"),
                 "id": id,
                 "input": input
             };
-            var jsonStr = JSON.stringify(json);
-            var xhr = new XMLHttpRequest();
+            let jsonStr = JSON.stringify(json);
+            let xhr = new XMLHttpRequest();
             xhr.open("POST", "https://api-indexcards.finndohrmann.de/api/cards/done", true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
@@ -101,19 +101,23 @@ function clickCard(e) {
                             let correct = json.correct;
 
                             let html;
-                            alert(others)
                             if (correct == null) {
                                 html = 'Falsch';
-                                document.getElementById('flip-card-back').style.backgroundColor = "red"
+                                document.getElementById('flip-card-back').style.backgroundColor = "#6e1e1e"
                             } else {
-                                html = 'correct';
-                                document.getElementById('flip-card-back').style.backgroundColor = "lawngreen"
+                                html = 'Richtig';
+                                document.getElementById('flip-card-back').style.backgroundColor = "#1e6e1e"
                             }
                             html += '<br>'
-                            others.forEach(function (o) {
-                                html += '\n' + o;
-                                html += '<br>'
-                            });
+                            if (others.split(">>>")[0].length > 0) {
+                                html += 'Andere Antworten: <br>'
+                                others.split(">>>").forEach(function (o) {
+                                    html += '\n' + o;
+                                    html += '<br>'
+                                });
+                            }
+                            html += '<br>'
+                            html += 'Die Karte kommt wieder am ' + formatUnix(time);
                             document.getElementById('flip-card-back').innerHTML += html;
                             document.getElementById('flip-card-inner').style.transform = "rotateY(180deg)";
                         }
@@ -123,5 +127,12 @@ function clickCard(e) {
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(jsonStr);
         }
+    }
+
+    function formatUnix(unix) {
+        let newDate = new Date();
+        newDate.setTime(unix * 1000);
+
+        return newDate.toUTCString();
     }
 }
