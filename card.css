@@ -95,3 +95,17 @@ h1 {
     cursor: pointer;
     width: 49%;
 }
+
+.reload {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+}
+
+.reload:hover {
+    opacity: 0.8;
+}

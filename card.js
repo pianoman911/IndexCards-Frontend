@@ -120,6 +120,8 @@ function clickCard(e) {
                             }
                             html += '<br>'
                             html += 'Die Karte kommt wieder am ' + formatUnix(time);
+                            html += '<button class="reload" onclick="document.location.reload()" type="submit">Weiter</button>'
+
                             document.getElementById('flip-card-back').innerHTML += html;
                             document.getElementById('flip-card-inner').style.transform = "rotateY(180deg)";
                         }
