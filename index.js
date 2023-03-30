@@ -179,7 +179,7 @@ function register(username, p) {
             if (xhr.status === 201) {
                 showNotificaton("Account erfolgreich erstellt")
             } else {
-                showNotificaton("Account konnte nicht erstellt werden")
+                showNotificaton("Account konnte nicht erstellt werden, möglicherweise existiert dieser bereits oder der Name ist nicht verfügbar")
             }
         }
     }
