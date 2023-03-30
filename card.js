@@ -50,6 +50,7 @@ function setCard() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
+                setCookie("session",getCookie("session"),5)
                 let json = JSON.parse(xhr.responseText);
                 if (json.id != null) {
                     let id = json.id;
@@ -94,6 +95,7 @@ function clickCard(e) {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
+                        setCookie("session",getCookie("session"),5)
                         let json = JSON.parse(xhr.responseText);
                         if (json.time != null) {
                             let time = json.time;
