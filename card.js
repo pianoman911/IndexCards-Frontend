@@ -119,7 +119,7 @@ function clickCard(e) {
                                 });
                             }
                             html += '<br>'
-                            html += 'Die Karte kommt wieder am ' + formatUnix(time);
+                            html += '<p>Die Karte kommt wieder am ' + formatUnix(time) + '</p>';
                             html += '<button class="reload" onclick="document.location.reload()" type="submit">Weiter</button>'
 
                             document.getElementById('flip-card-back').innerHTML += html;
@@ -137,6 +137,6 @@ function clickCard(e) {
         let newDate = new Date();
         newDate.setTime(unix * 1000);
 
-        return newDate.toUTCString();
+        return newDate.toLocaleString();
     }
 }
